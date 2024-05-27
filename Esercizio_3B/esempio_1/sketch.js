@@ -1,46 +1,46 @@
+let cols, rows;
+let rectSize = 50;
 
 function setup() {
-	createCanvas(windowWidth, windowHeight)
+  createCanvas(600, 600);
+  cols = width / rectSize;
+  rows = height / rectSize;
 }
-
-function windowResized() {
-	resizeCanvas(windowWidth, windowHeight)
-}
-
 
 function draw() {
+  background(255);
 
-	// background(255)
+  let h = hour();
+  let m = minute();
+  let s = second();
 
-	stroke(0)
-	fill(255, 0, 0)
+  // Rappresentazione delle ore
+  for (let i = 0; i < h; i++) {
+    for (let j = 0; j < cols; j++) {
+      let x = j * rectSize;
+      let y = i * (height / 24);
+      fill(0);
+      rect(x, y, rectSize, rectSize);
+    }
+  }
 
-	rect(20, 10, 80, 60)
+  // Rappresentazione dei minuti
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < cols; j++) {
+      let x = j * rectSize;
+      let y = (height / 24) * h + i * (height / 60);
+      fill(0, 255, 0);
+      rect(x, y, rectSize, rectSize);
+    }
+  }
 
-
-	fill(255, 200, 66)
-	rect(width - 80 - 20, 10, 80, 60)
-
-
-	stroke(255, 128, 0)
-	fill(0, 255, 255, 128)
-	rect(50, 30, 80, 60)
-
-	point(120, 140)
-
-	// se i tre valori sono identici è possibile inserirne solo uno
-	// stroke(255) equivale a stroke(255, 255, 255)
-	stroke(0, 0, 255)
-	line(100, 220, 300, 120)
-
-	fill(0, 255, 128)
-	circle( width/2, height/2, 90)
-
-	noStroke()
-
-	textSize(30)
-
-	fill(mouseX, mouseY, random(255))
-	text(mouseX + ", " + mouseY, mouseX, mouseY)
-
+  // Rappresentazione dei secondi
+  for (let i = 0; i < s; i++) {
+    for (let j = 0; j < cols; j++) {
+      let x = j * rectSize;
+      let y = (height / 24) * h + (height / 60) * m + i * (height / 60);
+      fill(0, 0, 255);
+      rect(x, y, rectSize, rectSize);
+    }
+  }
 }

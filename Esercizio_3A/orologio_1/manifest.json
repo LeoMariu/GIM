@@ -1,0 +1,14 @@
+{
+	"name": "Titolo",
+	"short_name": "Titolo",
+	"description": "Titolo",
+	"display_override": ["fullscreen"],
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "./icons/icon_512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
